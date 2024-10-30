@@ -1,18 +1,14 @@
 import React from 'react';
 
-const Step2 = ({ data, updateData, handlePrevStep, handleNextStep}) => {
+const Step2 = ({ data, updateData}) => {
     const handleChange = (e) => {
         const { name , value} = e.target;
         updateData({[name] : value});
       }
+      console.log(data);
       
-      const handleSubmit= (e) => {
-        e.preventDefault();
-        handleNextStep();
-       }
-
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       <label>Age: </label>
       <input
         type="number"
@@ -27,8 +23,6 @@ const Step2 = ({ data, updateData, handlePrevStep, handleNextStep}) => {
         value={data.gender}
         onChange={handleChange}
       />
-      <button onClick={handlePrevStep}>Back</button>
-      <button type="submit">Next</button>
     </form>
   );
 };

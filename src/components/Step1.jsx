@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Step1 = ({ data, updateData, handleNextStep}) => {
+const Step1 = ({ data, updateData}) => {
   
 console.log(data);
 
@@ -9,13 +9,8 @@ const handleChange = (e) => {
   updateData({[name] : value});
 }
 
-const handelSubmit= (e) => {
-  e.preventDefault();
-  handleNextStep();
- }
-
   return (
-    <form onSubmit={handelSubmit}>
+    <form >
       <label>Name: </label>
       <input
         type="text"
@@ -30,7 +25,6 @@ const handelSubmit= (e) => {
         value={data.surname}
         onChange={handleChange}
       />
-      <button type="submit">Next</button>
     </form>
   );
 };

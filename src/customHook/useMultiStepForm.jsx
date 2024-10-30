@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const useMultiStepForm = () => {
-  const [data, setData] = useState({
+  const [data, setData] = useState( JSON.parse(localStorage.getItem('data')) || {
     name: '',
     surname: '',
     age: '',
@@ -10,15 +10,7 @@ const useMultiStepForm = () => {
     companyCode: ''
   });
 
-  const [step, setStep] = useState(1);
-
-  useEffect(() => {
-    const savedData = JSON.parse(localStorage.getItem('data'));
-    const savedStep = JSON.parse(localStorage.getItem('step'));
-    
-    if (savedData) setData(savedData);
-    if (savedStep) setStep(savedStep);
-  }, []);
+  const [step, setStep] = useState(JSON.parse(localStorage.getItem('step')) || 1);
 
   const updateData = (newData) => {
     setData((prevData) => {

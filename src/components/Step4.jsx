@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Step4 = ( {data, handlePrevStep, handleDeleteData} ) => {
+const Step4 = ( {data} ) => {
   return (
     <div>
         <p>Name : {data.name}</p>
@@ -9,8 +9,6 @@ const Step4 = ( {data, handlePrevStep, handleDeleteData} ) => {
         <p>Gender: {data.gender}</p>
         <p>Company Name : {data.companyName}</p>
         <p>Company Code : {data.companyCode}</p>
-        <button onClick={handlePrevStep}>Back</button>
-        <button onClick={handleDeleteData}>Delete data</button>
     </div>
   )
 }
